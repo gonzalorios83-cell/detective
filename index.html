@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>El crimen de mañana — Investigaciones narrativas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">◈</span><div><strong>OFICINA DE INVESTIGACIONES COMPLEJAS</strong><small>UNIDAD DE CASOS ESPECIALES</small></div></div>
+      <div class="case-title"><span id="caseNumber">CASO 01</span><b id="caseTitle">EL CRIMEN DE MAÑANA</b></div>
+      <button id="menuButton" class="menu-button" type="button">ARCHIVO</button>
+      <div class="ui-zoom" aria-label="Tamaño de interfaz"><span>UI</span><button id="uiMinus" type="button" aria-label="Reducir tamaño de interfaz">A−</button><b id="uiZoom">100%</b><button id="uiPlus" type="button" aria-label="Aumentar tamaño de interfaz">A+</button></div>
+      <div class="clock"><small>HORA ACTUAL</small><b id="time">19:30</b><em id="urgency">QUEDAN 4H 17M</em></div>
+    </header>
+
+    <section class="layout">
+      <aside class="sidebar">
+        <div class="section-label">LUGARES A VISITAR</div>
+        <nav id="locations" class="location-list"></nav>
+        <div class="section-label evidence-label">PRUEBAS REUNIDAS <b id="evidenceCount">0/6</b></div>
+        <div id="evidence" class="evidence-list"><p>Aún no reuniste pruebas.</p></div>
+      </aside>
+
+      <section class="main-panel">
+        <div class="scene-top"><span id="sceneTag">DESPACHO</span><div id="status" class="status">La predicción llegó antes del crimen.</div></div>
+        <article id="story" class="story"></article>
+        <div id="actions" class="actions"></div>
+      </section>
+
+      <aside class="rightbar">
+        <section id="careerMeta" class="career-meta"></section>
+        <div class="section-label">FICHA DEL CASO</div>
+        <section class="file-card"><small id="fileLabelOne">OBJETIVO DE LA PREDICCIÓN</small><b id="fileTitleOne">Adrián Varela</b><p id="fileTextOne">Industrial y astrónomo. Según el diario, morirá a las 23:47.</p></section>
+        <section class="file-card"><small id="fileLabelTwo">LA NOTICIA DE MAÑANA</small><b id="fileTitleTwo">Diario “El Mensajero”</b><p id="fileTextTwo">“El asesino escapó en el tren de las 00:05.”</p></section>
+        <details class="people-panel" open>
+          <summary id="peopleHeading">PERSONAS DEL EXPEDIENTE</summary>
+          <ul id="suspects" class="suspect-list"><li class="empty-suspect">Elegí un expediente para ver sus personajes.</li></ul>
+        </details>
+        <div class="section-label hypothesis-label">CUADERNO DEL INVESTIGADOR</div>
+        <textarea id="theory" class="theory" placeholder="Anotá nombres, horarios, contradicciones o tu hipótesis…"></textarea>
+        <label id="resolutionPrompt" class="resolution-prompt" for="accused">TU CONCLUSIÓN</label>
+        <select id="accused" class="accused" aria-label="Conclusión del expediente"><option value="">Elegí una conclusión…</option></select>
+        <button id="resolve" class="resolve">PRESENTAR CONCLUSIÓN <span>→</span></button>
+        <div class="career-actions"><button id="askInformant" type="button">CONSULTAR INFORMANTE <small>$20 · pista no verificada</small></button><button id="delegateCase" type="button">DELEGAR A UN COMPAÑERO <small>−5 prestigio · sin premio</small></button></div>
+        <p id="resolutionTip" class="tip">Podés presentar una conclusión en cualquier momento.</p>
+      </aside>
+    </section>
+  </main>
+
+  <div id="intro" class="modal">
+    <div class="intro-card">
+      <p id="introKicker" class="kicker">EXPEDIENTE N.º 01 · 14 DE OCTUBRE</p>
+      <h1 id="introTitle">EL CRIMEN<br>DE MAÑANA</h1>
+      <div class="newspaper"><b id="introPaper">EL MENSAJERO</b><span id="introEdition">EDICIÓN DEL 15 DE OCTUBRE</span><strong id="introHeadline">VARELA, MUERTO<br>EN SU OBSERVATORIO</strong><small id="introCaption">El criminal huyó en el tren de las 00:05.</small></div>
+      <p id="introSummary">Elegí cómo querés entrar a la oficina.</p>
+      <div id="modePicker" class="mode-picker">
+        <button class="mode-choice" data-mode="career"><b>CARRERA DE INVESTIGACIÓN</b><small>Prestigio, sueldo, informantes, premios y consecuencias.</small></button>
+        <button class="mode-choice" data-mode="archive"><b>ARCHIVO DE EXPEDIENTES</b><small>Elegí y rejugá cualquier caso sin afectar tu carrera.</small></button>
+      </div>
+      <div id="casePicker" class="case-picker hidden"></div>
+      <button id="begin" class="primary" disabled>ABRIR EXPEDIENTE <span>→</span></button>
+      <small id="introFootnote">Todos los expedientes están disponibles desde el comienzo.</small>
+    </div>
+  </div>
+
+  <div id="ending" class="modal hidden"><div id="endingCard" class="ending-card"></div></div>
+  <script src="cases.js"></script>
+  <script src="app.js"></script>
+</body></html>
